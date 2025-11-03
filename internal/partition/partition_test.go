@@ -5,7 +5,7 @@ package partition_test
 import (
 	"testing"
 
-	"example.com/rig/internal/partition"
+	"github.com/leowmjw/go-rigid/internal/partition"
 )
 
 func TestPartition_HashBy_Deterministic(t *testing.T) {

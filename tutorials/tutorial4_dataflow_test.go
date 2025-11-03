@@ -10,7 +10,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"example.com/rig/internal/server"
+	"github.com/leowmjw/go-rigid/internal/server"
 )
 
 func TestT4_Dataflow_BranchingAndTransform(t *testing.T) {

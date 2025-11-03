@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"example.com/rig/internal/server"
+	"github.com/leowmjw/go-rigid/internal/server"
 )
 
 func main() {

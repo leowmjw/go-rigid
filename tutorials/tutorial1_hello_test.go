@@ -10,7 +10,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"example.com/rig/internal/server"
+	"github.com/leowmjw/go-rigid/internal/server"
 )
 
 func TestT1_DepotAppend_WithAck_ReturnsStreamingAck(t *testing.T) {

@@ -5,7 +5,7 @@ package query_test
 import (
 	"testing"
 
-	"example.com/rig/internal/query"
+	"github.com/leowmjw/go-rigid/internal/query"
 )
 
 func TestQuery_Invoke_SingleReturn(t *testing.T) {

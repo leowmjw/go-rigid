@@ -4,7 +4,7 @@ package tutorials
 
 import (
 	"testing"
-	"example.com/rig/testutil"
+	"github.com/leowmjw/go-rigid/testutil"
 )
 
 func TestT5_Microbatch_ExactlyOnce(t *testing.T) {

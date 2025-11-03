@@ -5,7 +5,7 @@ package tutorials
 import (
 	"testing"
 
-	"example.com/rig/internal/partition"
+	"github.com/leowmjw/go-rigid/internal/partition"
 )
 
 func TestT3_Partitioners_SameKeySamePartition(t *testing.T) {

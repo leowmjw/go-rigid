@@ -5,7 +5,7 @@ package agg_test
 import (
 	"testing"
 
-	"example.com/rig/internal/agg"
+	"github.com/leowmjw/go-rigid/internal/agg"
 )
 
 func TestAgg_Count(t *testing.T) {

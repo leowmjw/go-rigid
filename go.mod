@@ -1,6 +1,6 @@
-module example.com/rig
+module github.com/leowmjw/go-rigid
 
-go 1.23.0
+go 1.23.12
 
 require go.temporal.io/sdk v1.37.0
 

@@ -5,7 +5,7 @@ package pstate_test
 import (
 	"testing"
 
-	"example.com/rig/internal/pstate"
+	"github.com/leowmjw/go-rigid/internal/pstate"
 )
 
 func TestPState_LocalSelectAndTransform_Subindexing(t *testing.T) {

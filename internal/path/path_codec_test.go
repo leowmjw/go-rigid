@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"example.com/rig/internal/path"
+	"github.com/leowmjw/go-rigid/internal/path"
 )
 
 func TestPath_JSONRoundTrip_Navigators(t *testing.T) {
