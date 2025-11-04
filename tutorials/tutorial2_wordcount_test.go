@@ -33,9 +33,14 @@ func TestT2_WordCount_StreamToPState(t *testing.T) {
 	req := httptest.NewRequest(http.MethodPost, "/rest/tutorial/pstate/%24%24wordCounts/selectOne", bytes.NewReader(b))
 	rec := httptest.NewRecorder()
 	mux.ServeHTTP(rec, req)
-	if rec.Code == http.StatusOK {
-		var count int
-		_ = json.Unmarshal(rec.Body.Bytes(), &count)
-		_ = count
+	if rec.Code != http.StatusOK {
+		t.Fatalf("selectOne status=%d body=%s", rec.Code, rec.Body.String())
+	}
+	var count int
+	if err := json.Unmarshal(rec.Body.Bytes(), &count); err != nil {
+		t.Fatalf("failed to unmarshal count: %v", err)
+	}
+	if count != 3 {
+		t.Fatalf("expected count 3 for 'to', got %d", count)
 	}
 }

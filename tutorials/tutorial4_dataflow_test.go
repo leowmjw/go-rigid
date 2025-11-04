@@ -27,5 +27,14 @@ func TestT4_Dataflow_BranchingAndTransform(t *testing.T) {
 	req2 := httptest.NewRequest(http.MethodPost, "/rest/tutorial/pstate/%24%24counts/selectOne", bytes.NewReader(pb))
 	rec2 := httptest.NewRecorder()
 	mux.ServeHTTP(rec2, req2)
-	_ = rec2
+	if rec2.Code != http.StatusOK {
+		t.Fatalf("selectOne status=%d body=%s", rec2.Code, rec2.Body.String())
+	}
+	var count int
+	if err := json.Unmarshal(rec2.Body.Bytes(), &count); err != nil {
+		t.Fatalf("failed to unmarshal count: %v", err)
+	}
+	if count != 1 {
+		t.Fatalf("expected count 1 for u1 click, got %d", count)
+	}
 }

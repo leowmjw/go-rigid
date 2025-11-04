@@ -8,8 +8,8 @@ import (
 )
 
 func TestT5_Microbatch_ExactlyOnce(t *testing.T) {
-	env := testutil.NewEnv()
-	defer env.Cancel()
+	_ = testutil.NewEnv()
+	// TODO: implement microbatch exactly-once test
 }
 
 func TestT5_Stream_RetryModes_AffectOutputs(t *testing.T) {

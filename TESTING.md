@@ -9,5 +9,9 @@ Suites:
 - T4 Dataflow — Paths + transforms
 - T5 ETLs — Microbatch (exactly-once), Stream retries
 - T6 Social — Follow/Unfollow, subindexing, mirrors
+- T7 Query Invoke — Named queries with parameters
+- T8 Workflow Replay — Deterministic workflows
+- T9 Activity Retries — Fault tolerance
+- T10 Microbatch Deduplication — Exactly-once processing
 
 See TODO.md for phased work.

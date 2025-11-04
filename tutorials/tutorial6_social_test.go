@@ -26,9 +26,19 @@ func TestT6_Social_FollowUnfollowAdjacency(t *testing.T) {
 	post(map[string]any{"type":"Follow","src":"u2","dst":"u1"})
 	post(map[string]any{"type":"Unfollow","src":"u2","dst":"u1"})
 
-	b,_ := json.Marshal([]any{"u2"})
-	req := httptest.NewRequest(http.MethodPost, "/rest/social/pstate/%24%24adj/selectOne", bytes.NewReader(b))
+	pathJSON := []any{"u2"}
+	pb,_ := json.Marshal(pathJSON)
+	req := httptest.NewRequest(http.MethodPost, "/rest/social/pstate/%24%24adj/selectOne", bytes.NewReader(pb))
 	rec := httptest.NewRecorder()
 	mux.ServeHTTP(rec, req)
-	_ = rec
+	if rec.Code != http.StatusOK {
+		t.Fatalf("selectOne status=%d body=%s", rec.Code, rec.Body.String())
+	}
+	var adj []string
+	if err := json.Unmarshal(rec.Body.Bytes(), &adj); err != nil {
+		t.Fatalf("failed to unmarshal adj: %v", err)
+	}
+	if len(adj) != 0 {
+		t.Fatalf("expected empty adj for u2 after unfollow, got %v", adj)
+	}
 }
