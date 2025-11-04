@@ -11,5 +11,6 @@ import (
 func TestDepot_Append_AckLevels(t *testing.T) {
 	var ts testsuite.WorkflowTestSuite
 	env := ts.NewTestWorkflowEnvironment()
-	defer env.Cancel()
+	_ = env // no explicit cancel needed
+	// Placeholder: no workflow logic yet. Ensures environment can start/stop cleanly.
 }

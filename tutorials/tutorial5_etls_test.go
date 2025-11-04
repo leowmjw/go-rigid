@@ -9,7 +9,7 @@ import (
 
 func TestT5_Microbatch_ExactlyOnce(t *testing.T) {
 	env := testutil.NewEnv()
-	defer env.Cancel()
+	_ = env // no explicit cancel
 }
 
 func TestT5_Stream_RetryModes_AffectOutputs(t *testing.T) {

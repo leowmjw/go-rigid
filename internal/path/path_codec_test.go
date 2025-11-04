@@ -21,8 +21,10 @@ func TestPath_JSONRoundTrip_Navigators(t *testing.T) {
 	}
 	for _, tc := range cases {
 		b, _ := json.Marshal(tc.jsonArr)
-		p, err := path.DecodeJSONPath(b)
-		if err == nil { _ , _ = path.EncodeJSONPath(p) }
-		_ = b; _ = err
+		_, err := path.DecodeJSONPath(b)
+		if err == nil {
+			// When implemented, expect EncodeJSONPath to succeed and round-trip equality.
+			// Placeholder: currently returns error; skip assert.
+		}
 	}
 }

@@ -11,5 +11,6 @@ import (
 func TestMicrobatch_ExactlyOnce_AcrossAttempts(t *testing.T) {
 	var ts testsuite.WorkflowTestSuite
 	env := ts.NewTestWorkflowEnvironment()
-	defer env.Cancel()
+	_ = env // no explicit cancel needed
+	// Future: register attempt activity and assert idempotent commits across retries.
 }

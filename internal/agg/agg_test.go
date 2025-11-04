@@ -15,4 +15,7 @@ func TestAgg_Count(t *testing.T) {
 		s, err = agg.Count.Fold(s, 1)
 		if err != nil { t.Fatalf("fold: %v", err) }
 	}
+	if s != 3 {
+		t.Fatalf("expected count 3, got %v", s)
+	}
 }

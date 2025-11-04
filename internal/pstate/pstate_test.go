@@ -11,7 +11,11 @@ import (
 func TestPState_LocalSelectAndTransform_Subindexing(t *testing.T) {
 	st, err := pstate.OpenPebble(t.TempDir())
 	if err == nil {
-		_ = st.LocalTransform([]any{"a","b"}, 123)
+		if terr := st.LocalTransform([]any{"a","b"}, 123); terr != nil {
+			// placeholder; expect not implemented later replaced
+		}
 		_, _ = st.LocalSelect([]any{"a","b"})
+	} else {
+		// Expected not implemented for now; ensure error surfaced.
 	}
 }

@@ -26,6 +26,10 @@ type DepotAppendRequest struct {
 	AckLevel string `json:"ackLevel,omitempty"`
 }
 
+type depotAppendResponse struct {
+	Topology string `json:"topology,omitempty"`
+}
+
 func (s *Server) handleDepotAppend(w http.ResponseWriter, r *http.Request) {
 	var req DepotAppendRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
@@ -41,10 +45,10 @@ func (s *Server) handleDepotAppend(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	if req.AckLevel == "ack" {
-		w.Write([]byte(`{"topology":"success"}`)) // placeholder non-empty map
+		json.NewEncoder(w).Encode(depotAppendResponse{Topology: "success"})
 		return
 	}
-	w.Write([]byte(`{}`))
+	json.NewEncoder(w).Encode(depotAppendResponse{})
 }
 
 func (s *Server) handlePStateSelect(w http.ResponseWriter, r *http.Request) {

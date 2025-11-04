@@ -11,5 +11,6 @@ import (
 func TestStream_EventTree_RetryModes(t *testing.T) {
 	var ts testsuite.WorkflowTestSuite
 	env := ts.NewTestWorkflowEnvironment()
-	defer env.Cancel()
+	_ = env // no explicit cancel needed
+	// Future: register mock processor activity; inject transient failures; assert retry count.
 }
