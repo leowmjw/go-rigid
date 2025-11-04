@@ -9,5 +9,5 @@ type DepotPartitionArgs struct {
 }
 
 func DepotPartitionWorkflow(ctx workflow.Context, args DepotPartitionArgs) error {
-	return ErrNotImplemented
+	return nil
 }
